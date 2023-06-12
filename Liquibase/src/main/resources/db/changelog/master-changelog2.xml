@@ -6,10 +6,10 @@
 
    <changeSet id="1" author="swapnil">
    	  <preConditions>
-         <dbms type="MySQL" />
+         <dbms type="Derby" />
       </preConditions>
       <createTable tableName="Student">
-         <column name="StudentId" type="int" autoIncrement="${autoIncrement}">
+         <column name="StudentID" type="int" autoIncrement="${autoIncrement}">
             <constraints primaryKey="true" nullable="false" />
          </column>
          <column name="StudentName" type="varchar(255)">

@@ -35,6 +35,7 @@
     	<artifactId>mysql-connector-java</artifactId>
     	<version>8.0.32</version>
 	</dependency>
+	
   </dependencies>
   
   <build>
@@ -43,20 +44,31 @@
 			  <groupId>org.liquibase</groupId>
 			  <artifactId>liquibase-maven-plugin</artifactId>
 			  <version>4.22.0</version>
-			  <configuration>
-			  		<changeLogFile>src/main/resources/db/changelog/master-changelog1.xml</changeLogFile>
-			 			<driver>com.mysql.cj.jdbc.Driver</driver>
-			 			<url>jdbc:mysql://localhost:3306/liquibase</url>
-			 			<username>root</username>
-			 			<password>root</password>
-<!--			 		<driver>org.apache.derby.jdbc.ClientDriver</driver>
-			 			<url>jdbc:derby://localhost:1527/sample;create=true</url>
-			 			<username>liquibase</username>
-			 			<password>liquibase</password>						-->
-			  </configuration>
 			  <executions>
 				  <execution>
+					  <id>MySQL-Update</id>
 					  <phase>process-resources</phase>
+					  <configuration>
+			  				<changeLogFile>src/main/resources/db/changelog/master-changelog1.xml</changeLogFile>
+			 				<driver>com.mysql.cj.jdbc.Driver</driver>
+			 				<url>jdbc:mysql://localhost:3306/liquibase</url>
+			 				<username>root</username>
+			 				<password>root</password>
+			  		  </configuration>
+					  <goals>
+						  <goal>update</goal>
+					  </goals>
+				  </execution>
+				   <execution>
+					  <id>Derby-Update</id>
+					  <phase>process-resources</phase>
+					  <configuration>
+			  				<changeLogFile>src/main/resources/db/changelog/master-changelog2.xml</changeLogFile>
+			 				<url>jdbc:derby://localhost:1527/sample;create=true</url>
+			 				<driver>org.apache.derby.jdbc.ClientDriver</driver>
+			 				<username>liquibase</username>
+			 				<password>liquibase</password>
+			  		  </configuration>
 					  <goals>
 						  <goal>update</goal>
 					  </goals>
