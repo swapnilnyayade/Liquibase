@@ -39,12 +39,7 @@
 			  <artifactId>liquibase-maven-plugin</artifactId>
 			  <version>4.22.0</version>
 			  <configuration>
-			  		<changeLogFile>src/main/resources/db/changelog/master-changelog.xml</changeLogFile>
-			 		<outputChangeLogFile>src/main/resources/db/changelog/master-changelog3.xml</outputChangeLogFile>
-			 		<driver>com.mysql.cj.jdbc.Driver</driver>
-					<url>jdbc:mysql://localhost:3306/liquibase</url>
-	 				<username>root</username>
-	 				<password>root</password>
+				  	<propertyFile>src/main/resources/liquibase.properties</propertyFile>
 			  </configuration>
 			  <executions>
 				  <execution>

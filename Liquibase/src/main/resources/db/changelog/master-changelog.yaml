@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: src/main/resources/db/changelog/changelog-yaml-ex.yaml
+  - include:
+      file: src/main/resources/db/changelog/changelog-json-ex.json
